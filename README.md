@@ -28,3 +28,21 @@ shell> setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
 shell> getcap /usr/local/mysql/bin/mysqld
 /usr/local/mysql/bin/mysqld = cap_sys_nice+ep
 
+会在工具目录下生成slowlog.txt文件保存慢SQL。
+
+shell> cat slowlog.txt
+
+2021-07-21 18:22:30
+
+用户名：root
+
+来源IP：localhost
+
+数据库名：test
+
+SQL语句：select sleep(3600)
+
+资源组：slowsql_rg
+
+执行时间：13 秒
+
