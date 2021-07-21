@@ -23,8 +23,8 @@
 
 开启步骤如下：
 
-# setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
+shell> setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
 
-# getcap /usr/local/mysql/bin/mysqld
+shell> getcap /usr/local/mysql/bin/mysqld
 /usr/local/mysql/bin/mysqld = cap_sys_nice+ep
 
