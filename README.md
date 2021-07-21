@@ -1,2 +1,1 @@
-# imprison_rg
-囚禁慢SQL
+# imprison_rg 囚禁慢SQL
