@@ -8,6 +8,7 @@
 
 资源组的作用是资源隔离（你可以理解为开通云主机时勾选的硬件配置），将线上的慢SQL线程id分配给CPU一个核，让它慢慢跑，从而不影响CPU整体性能。
 
+默认把执行时间超过10秒的慢SQL，捆绑在CPU最后一个核。
 
 运行：
 
@@ -16,3 +17,14 @@
 关闭：
 
 # php imprison_rg.php --stop
+
+
+注：资源组启动需开启CAP_SYS_NICE功能
+
+开启步骤如下：
+
+# setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
+
+# getcap /usr/local/mysql/bin/mysqld
+/usr/local/mysql/bin/mysqld = cap_sys_nice+ep
+
