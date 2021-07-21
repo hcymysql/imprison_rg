@@ -19,16 +19,8 @@
 # php imprison_rg.php --stop
 
 
-注：资源组启动需开启CAP_SYS_NICE功能
 
-开启步骤如下：
-
-shell> setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
-
-shell> getcap /usr/local/mysql/bin/mysqld
-/usr/local/mysql/bin/mysqld = cap_sys_nice+ep
-
-会在工具目录下生成slowlog.txt文件保存慢SQL。
+2) 会在工具目录下生成slowlog.txt文件保存慢SQL。
 
 shell> cat slowlog.txt
 
@@ -45,4 +37,14 @@ SQL语句：select sleep(3600)
 资源组：slowsql_rg
 
 执行时间：13 秒
+
+----------------------------------------------------------
+注：资源组启动需开启CAP_SYS_NICE功能
+
+开启步骤如下：
+
+shell> setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
+
+shell> getcap /usr/local/mysql/bin/mysqld
+/usr/local/mysql/bin/mysqld = cap_sys_nice+ep
 
