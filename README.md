@@ -14,13 +14,13 @@
 
 # php imprison_rg.php
 
-关闭：
+关闭并删除资源组：
 
 # php imprison_rg.php --stop
 
 
 
-2) 会在工具目录下生成slowlog.txt文件保存慢SQL。
+2、会在工具目录下生成slowlog.txt文件保存慢SQL。
 
 shell> cat slowlog.txt
 
