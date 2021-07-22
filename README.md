@@ -70,3 +70,11 @@ shell> getcap /usr/local/mysql/bin/mysqld
 shell> systemctl restart mysqld.service
 
 ![image](https://s4.51cto.com/images/blog/202107/22/64b0f34597b7c95f4eab1c1fc74061fe.jpg?x-oss-process=image/watermark,size_14,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=)
+
+----------------------------------------------------
+3、验证：
+
+使用top命令查看CPU状态信息，发现慢SQL已经绑定在CPU最后一核上运行。对于复杂、执行时间长、消耗资源多的慢SQL，我们可以将其设置特定的资源组，限制SQL查询的使用资源，避免导致其它正常查询不被响应，甚至导致MySQL直接hang住。
+
+![image](https://s4.51cto.com/images/blog/202107/22/b35929dd5b13df07d4f31b5d9917592a.jpg?x-oss-process=image/watermark,size_14,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=)
+
