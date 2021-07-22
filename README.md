@@ -11,12 +11,19 @@
 默认把执行时间超过10秒的慢SQL，捆绑在CPU最后一个核。
 
 ######下面的配置信息修改成你自己的！！！######
+
 shell> vim imprison_rg.php
+
 $hostip='127.0.0.1';
+
 $username='admin';
+
 $password='hechunyang';
+
 $dbname='test';
+
 $dbport=3306;
+
 $long_time=10; //执行时间10秒
 
 
