@@ -48,3 +48,6 @@ shell> setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
 shell> getcap /usr/local/mysql/bin/mysqld
 /usr/local/mysql/bin/mysqld = cap_sys_nice+ep
 
+shell> service mysqld restart
+
+
