@@ -75,7 +75,8 @@ SQL语句：select sleep(3600)
 shell> setcap cap_sys_nice+ep /usr/local/mysql/bin/mysqld
 
 shell> getcap /usr/local/mysql/bin/mysqld
-/usr/local/mysql/bin/mysqld = cap_sys_nice+ep
+
+/usr/local/mysql/bin/mysqld = cap_sys_nice+ep（出现此信息表示已经开启CAP_SYS_NICE功能）
 
 shell> systemctl restart mysqld.service
 
