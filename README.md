@@ -91,7 +91,7 @@ shell> systemctl restart mysqld.service
 
 ----------------------------------------------------
 测试用例：
-'''
+```
 DROP PROCEDURE bomb;
 DELIMITER // 
 CREATE PROCEDURE bomb(OUT ot BIGINT)  
@@ -105,7 +105,7 @@ BEGIN
     SELECT cnt INTO ot;  
 END  //
 DELIMITER ;
-'''
+```
 
-''' call  bomb(@a);'''
+``` call  bomb(@a);```
 
