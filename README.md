@@ -89,3 +89,23 @@ shell> systemctl restart mysqld.service
 
 ![image](https://s4.51cto.com/images/blog/202107/22/b35929dd5b13df07d4f31b5d9917592a.jpg?x-oss-process=image/watermark,size_14,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_20,type_ZmFuZ3poZW5naGVpdGk=)
 
+----------------------------------------------------
+测试用例：
+'''
+DROP PROCEDURE bomb;
+DELIMITER // 
+CREATE PROCEDURE bomb(OUT ot BIGINT)  
+BEGIN  
+    DECLARE cnt BIGINT DEFAULT 0;  
+    SET @FUTURE = (SELECT NOW() + INTERVAL 1800 SECOND);  
+    WHILE NOW() < @FUTURE 
+    DO  
+        SET cnt = (SELECT cnt + 1);  
+    END WHILE;  
+    SELECT cnt INTO ot;  
+END  //
+DELIMITER ;
+'''
+
+''' call  bomb(@a);'''
+
