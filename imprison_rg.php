@@ -15,7 +15,8 @@ error_reporting(7);
 
 
 $longopts  = array(
-    "stop"
+    "stop",
+    "status"
 );
 
 $options = getopt($shortopts, $longopts);
@@ -95,8 +96,22 @@ while($row_rg_slowsql = mysqli_fetch_array($query_rg_slowsql)) {
 		$disable_rg = "ALTER RESOURCE GROUP slowsql_rg DISABLE FORCE";
 		mysqli_query($conn,$disable_rg);
 		$drop_rg = "drop resource group slowsql_rg";
-                mysqli_query($conn,$drop_rg);
+            mysqli_query($conn,$drop_rg);
 	}	
+	
+	if(isset($options['status'])){
+		echo "\e[38;5;11m查看资源组绑定结果\e[0m" .PHP_EOL;
+		$select_rg = "select THREAD_ID,PROCESSLIST_ID,PROCESSLIST_INFO,PROCESSLIST_TIME,RESOURCE_GROUP from performance_schema.threads where RESOURCE_GROUP = 'slowsql_rg'";
+		$result = mysqli_query($conn,$select_rg);
+            while($row = mysqli_fetch_array($result)) {
+				echo "THREAD_ID:" . $row["THREAD_ID"]  .PHP_EOL;
+				echo "PROCESSLIST_ID:" . $row["PROCESSLIST_ID"]  .PHP_EOL;
+				echo "PROCESSLIST_INFO:" . $row["PROCESSLIST_INFO"]  .PHP_EOL;
+				echo "PROCESSLIST_TIME:" . $row["PROCESSLIST_TIME"]  .PHP_EOL;
+				echo "RESOURCE_GROUP:" . $row["RESOURCE_GROUP"]  .PHP_EOL;
+                        echo "==============================================="   .PHP_EOL; 
+		}
+	}		
 }
 
 
